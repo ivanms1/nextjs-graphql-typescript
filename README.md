@@ -1,4 +1,4 @@
-# Next js + GraphQL + TypeScript Setup.
+# Next js + GraphQL + TypeScript Setup
 
 ## Getting Started
 
