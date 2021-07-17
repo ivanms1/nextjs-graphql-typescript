@@ -8,11 +8,6 @@ import styles from '../styles/Home.module.css';
 export default function Home() {
   const { data, loading, error } = useQuery(QUERY_COUNTRIES);
 
-  // make sure all data is loaded
-  if (loading) {
-    return <p>loading...</p>;
-  }
-
   // check for errors
   if (error) {
     return <p>:( an error happened</p>;
@@ -26,9 +21,11 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
       <h1>Countries</h1>
+      {/* let the user know we are fetching the countries */}
+      {loading && <p>loading...</p>}
       <div>
-        {data.countries.map((country) => (
-          <div key={country._id}>{country.name}</div>
+        {data?.countries?.map((country) => (
+          <div key={country.code}>{country.name}</div>
         ))}
       </div>
     </div>
